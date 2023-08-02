@@ -1,0 +1,13 @@
+{% extends "layout.html" %} {% block content %}
+<div class="container">
+  <h1>Movies</h1>
+  <div class="card" style="background-color: #ffd1da">
+    <div class="card-body">
+      <h1>{{movie.title}}</h1>
+      <p>Duration: {{movie.duration_minutes}} minutes</p>
+      <p>Genre: {{movie.genre}}</p>
+      <p>{{movie.short_description}}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

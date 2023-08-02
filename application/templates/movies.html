@@ -1,0 +1,39 @@
+{% extends "layout.html" %} {% block content %}
+<div class="container">
+  <h1>Movies</h1>
+  {% for movie in movies %}
+  <div class="card" style="background-color: #fba1b7">
+    <div class="card-body">
+      <h1>{{movie.title}}</h1>
+      <p>Duration: {{movie.duration_minutes}} minutes</p>
+      <p>Genre: {{movie.genre}}</p>
+      <p>{{movie.short_description}}</p>
+    </div>
+  </div>
+  {% endfor %}
+
+  <div class="custom-form">
+    <form method="POST" action="">
+      {{form.hidden_tag()}}
+      <fieldset>
+        <legend>Add your favorite Movie!</legend>
+        <div class="form-group">
+          {{form.title.label}} {{form.title(class="form-control")}}
+        </div>
+        <div class="form-group">
+          {{form.duration_minutes.label}}
+          {{form.duration_minutes(class="form-control")}}
+        </div>
+        <div class="form-group">
+          {{form.genre.label}} {{form.genre(class="form-control")}}
+        </div>
+        <div class="form-group">
+          {{form.short_description.label}}
+          {{form.short_description(class="form-control")}}
+        </div>
+      </fieldset>
+      <div class="form-group">{{form.submit(class="btn btn-primary")}}</div>
+    </form>
+  </div>
+</div>
+{% endblock %}
